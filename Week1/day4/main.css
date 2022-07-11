@@ -1,0 +1,87 @@
+/*
+Layout1: use float and width (maybe even box-sizing)
+*/
+
+body{
+  background-color: lightblue;
+}
+
+p{
+  margin: 30px;
+}
+
+#p1{
+  background-color: pink;
+}
+
+#p2{
+  background-color: pink;
+  font-size: 20px;
+}
+
+#p3{
+  background-color: pink;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+#p4{
+  background-color: pink;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#p5{
+  width: 25%;
+  background-color: pink;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  border: 2px solid red;
+  float: left;
+  margin:auto;
+  box-sizing: border-box;
+}
+
+#p6{
+  float: left;
+  width: 25%;
+  background-color: pink;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  border: 2px solid red;
+  text-decoration: underline;
+  margin: auto;
+  box-sizing:border-box;
+}
+
+#p7{
+  width: 25%;
+  background-color: pink;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  border: 2px solid red;
+  text-decoration: underline;
+  text-decoration-color: purple;
+  margin: auto;
+  float:  left;
+  box-sizing: border-box;
+}
+
+#p8{
+  width: 25%;
+  background-color: pink;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  border: 2px solid red;
+  text-decoration: underline;
+  text-decoration-color: purple;
+  text-decoration-style: double;
+  margin: auto;
+  float: left;
+  box-sizing: border-box;
+}
