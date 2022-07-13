@@ -1,0 +1,159 @@
+
+/* position: static is default */
+/* position: relative stays in it's relative position but child can recognize it */
+/* To have relative for the parent and absolute for the child will create the parent as the background image */
+/* position: sticky will stick the div to the top or bottom of page if you scroll past them */
+.parent{
+  border: 3px solid red;
+  position: relative;
+  background-image: url('img.jpg');
+
+  /* background-size: width % height % */
+  background-size: 100% 100%;
+  height: 400px;
+
+}
+
+/* .parent img{
+  width: 100%;
+  height: 100%;
+} */
+
+.child{
+  width: 20%;
+  height: 30%;
+  top: 10%;
+  left: 10%;
+  position: absolute;
+  background-color: rgba(0,3,0);
+  /* opacity is for transparecy */
+}
+
+/* (condition) */
+@media only screen and (min-width: 500px) and (max-width:800px) {
+  .m1, .m2, .m3, .m4{
+    background-color: lightgreen;
+    width: 10%;
+    float:left;
+  }
+}
+
+nav{
+  /* border: 2px solid red; */
+  background-color: black;
+  height: 70px;
+  width: 100%;
+  padding: 0px 100px;
+  position: sticky;
+  z-index: 1;
+}
+
+nav ul{
+  display: flex;
+  justify-content: center;
+}
+
+nav .menu li{
+  display: inline-block;
+  list-style: none;
+}
+
+nav .menu li a{
+  color:white;
+  background-color: none;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0px 32px;
+
+}
+
+a:hover{
+  background-color: orange;
+}
+
+
+
+.flexbox{
+  width: 100%;
+  display: flex;
+  /* flex-wrap will make them float if space is out */
+  flex-wrap: wrap;
+
+  /* Flex direction */
+  /* flex-direction: row; */
+
+  /* Align in the main axis */
+  /* Main axis referring to the way it is in the flex direction */
+  /* Refer to the column or row version of image mainAndCross.png in the day5 file */
+  justify-content: center;
+
+  /* Aligns items in the cross axis */
+  align-items: center;
+
+  /* When the window becomes smaller, align conent will align in in the chosen are  */
+  align-content: center;
+
+
+  background-color: lightpink;
+  height: 1000px;
+
+
+}
+
+/* For a navigation, DISPLAY IS KEY!!! */
+
+/* NOTE: Only add flex. align self, and order to the child!! */
+
+.c1{
+  width: 100px;
+  height: 50px;
+  background: orange;
+  flex: ;
+  /* Aligns the single element without affection others */
+  align-self: start;
+  order: ;
+}
+
+.c2{
+  width: 100px;
+  background: purple;
+  height: 200px;
+
+}
+
+.c3{
+  height: 100px;
+  background: white;
+  border: 2px solid black;
+  width:10%;
+}
+
+.c4{
+  /* height:50%; */
+  background-color: lightgreen;
+  border: 2px solid black;
+}
+
+.c5{
+  width: 100px;
+  height: 50px;
+  background: orange;
+}
+
+.c6{
+  width: 100px;
+  background: purple;
+}
+
+.c7{
+  height: 100px;
+  background: white;
+  border: 2px solid black;
+  width:10%;
+}
+
+.c8{
+  height:50%;
+  background-color: lightgreen;
+  /* border: 2px solid black; */
+}
