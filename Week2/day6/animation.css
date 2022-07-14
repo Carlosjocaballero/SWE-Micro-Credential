@@ -1,0 +1,147 @@
+body{background-color: lightblue;}
+
+.mountain{
+  height: 1200px;
+  background-image: url("racetrack.jpg");
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.car1{
+  width: 20%;
+  height: 20%;
+  border: 2px solid yellow;
+  position:absolute;
+  bottom:0;
+  transform: rotate(90deg);
+  /* animation-name: moveToRight;
+  animation-duration: 3s; */
+  animation: car1Move 3.9s;
+}
+
+.car1 img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.car2{
+  width: 20%;
+  height: 20%;
+  border: 2px solid red;
+  position:absolute;
+  bottom:0;
+  left: 20%;
+  transform: rotate(-140deg);
+  /* animation-name: moveToRight;
+  animation-duration: 3s; */
+  animation: car2Move 4.2s;
+}
+
+.car2 img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.car3{
+  width: 20%;
+  height: 20%;
+  border: 2px solid red;
+  position:absolute;
+  bottom:0;
+  left: 40%;
+  /* animation-name: moveToRight;
+  animation-duration: 3s; */
+
+}
+
+.car3 img{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* @keyframes moveToRight {
+  0% {left:0%;}
+   50%{bottom: 0; left:10%;}
+  75%{bottom: 0; left:30%;}
+  45%{left: 30%; bottom:30%; transform: rotate(-90deg);}
+  66%{left: 50%; bottom:50%; transform: rotate(-180deg); width: 34%; border-radius: 14px;}
+  88%{left: 50%; bottom:50%; transform: rotate(-270deg); width: 34%; border-radius: 14px;}
+
+
+  100%{left:60%; transform: rotate(360);}
+} */
+
+@keyframes car1Move {
+  0%{ bottom: 0%;}
+  100%{ bottom: 80%;}
+}
+
+@keyframes car2Move {
+  0%{bottom:0%;}
+  100%{bottom: 78%;}
+}
+
+/*-----------------------  Slide Show -------------------------------- */
+
+.stage{
+  border: 2px solid red;
+  height: 400px;
+  width: 100%;
+
+  /* to hide the overflowed */
+  overflow: hidden;
+}
+
+
+
+.slide-wrapper{
+  width: 400%;
+  height: 100%;
+  animation: slideshow 10s infinite;
+}
+
+.slide{
+  width:25%;
+  height:100%;
+  float:left;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 400%;
+}
+
+@keyframes slideshow {
+  0% {margin-left: 0%;}
+  25% {margin-left:-100%}
+  50% {margin-left:-200%}
+  75% {margin-left: -300%}
+  100% {margin-left: -300%}
+}
+
+
+
+
+
+
+
+
+
+.s1{
+  background-color: pink;
+}
+
+.s2{
+  background-color: lightgreen;
+}
+
+.s3{
+  background-color: blue;
+}
+
+.s4{
+  background-color: orange;
+}

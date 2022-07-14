@@ -46,35 +46,54 @@ body{
   background-size: 100% 100%;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 100%;
+  /* justify-content: center;
+  align-items: center;
+  align-content: center; */
+  border: 2px solid blue;
 }
 
 .minute-arms{
-  position:absolute;
-  /* border: 2px solid red; */
-  width:100%;
-  height: 100%;
-  position: absolute;
-  top:30%;
-  left:50%;
+  /* border: 2px solid blue; */
+  align-self: center;
+  width:40%;
+  height:30%;
+  margin-left: 51%;
+  margin-top: -80px;
+  transform-origin: left;
+  transform: rotate(-90deg);
+  animation: minuteRotate 10s;
+  animation-fill-mode: forwards;
 }
 
 .minute-arms  img{
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
 }
 
 .hour-arms{
-  position:absolute;
   /* border: 2px solid red; */
-  width:100%;
-  height: 100%;
-  position: absolute;
-  top:12%;
-  left:31%;
+  width:40%;
+  height:45%;
+  margin-left: 148px;
+  margin-top: 29px;
+  align-self: center;
+  transform-origin: bottom;
+  transform: rotate(90deg);
+  animation: hourRotate 10s;
+  animation-fill-mode: forwards;
 }
 
 .hour-arms  img{
-  width: 200px;
-  height: 200px;
-  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes hourRotate {
+  0%{transform: rotate(90deg);}
+  100%{transform: rotate(120deg);}
+}
+
+@keyframes minuteRotate {
+  0%{transform: rotate(-90deg);}
+  100%{transform: rotate(270deg);}
 }
