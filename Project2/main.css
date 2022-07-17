@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 body{
   display: flex;
   justify-content: center;
@@ -39,7 +40,7 @@ body{
 .header-img{
   width: 100%;
   height: 100%;
-  animation: img-zoom 3s infinite;
+  animation: img-zoom 5s infinite;
 }
 
 .title-stage{
@@ -56,7 +57,7 @@ body{
   position: relative;
   width: 100%;
   height: 100%;
-  animation: header-title-animation 3s infinite;
+  animation: header-title-animation 5s infinite;
 }
 
 .title-slide{
@@ -80,12 +81,12 @@ body{
   position: relative;
   width: 100%;
   height: 100%;
-  animation: slogan-animation 3s infinite;
+  animation: slogan-animation 5s infinite;
 }
 
 .slogan-slide{
-  font-family: 'Mr Dafoe', cursive;
-  font-size: 30px;
+  font-family: 'Edu TAS Beginner', cursive;
+  font-size: 25px;
   position: absolute;
 }
 
@@ -152,4 +153,35 @@ body{
   75%{margin-left: -100%}
   90%{margin-left: -100%}
   100%{margin-left:0%;}
+}
+
+.hero{
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 600px;
+  background-image: url('images/hero-img.jpg');
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.hero-text{
+  /* border: 2px solid blue; */
+  width: 50%;
+  height: 250px;
+  position: relative;
+  top: 35%;
+  left: 5%;
+  text-align: center;
+  display: flex;
+}
+
+.hero-text p{
+  border:5px solid #82B784;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Edu TAS Beginner', cursive;
+  background-color: #CDE4D0;
+  font-size: 130%;
+  padding: 5%;
 }
