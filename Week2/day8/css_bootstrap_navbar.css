@@ -1,0 +1,27 @@
+body{
+  background-color: lightblue;
+}
+
+.menu{
+  font-size: 30px;
+  background-color: lightgreen;
+  height: 60px;
+
+  /* Can add padding to center */
+}
+
+.menu li{
+  display: inline;
+  padding: 10px;
+}
+
+.menu li a{
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 6%;
+}
+
+.menu li a:hover{
+  background-color: orange;
+}
