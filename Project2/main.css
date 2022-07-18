@@ -16,7 +16,7 @@ body{
   /* border: 2px solid green; */
   width: 60%;
   max-width: 1200px;
-  height: 180vh;
+  height: 250vh;
   background-color: #F1F6DF;
 }
 
@@ -347,6 +347,10 @@ body{
   color: white;
 }
 
+.sell-button-space a:hover{
+  background-color: #314532;
+}
+
 .mdlwindow{
   opacity: 0;
   pointer-events: none;
@@ -526,4 +530,103 @@ body{
 .no-forward img{
   width: 90%;
   height: 90%;
+}
+
+.footer{
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 500px;
+  background-color: #101711;
+  position: relative;
+}
+
+.displays{
+  /* border: 2px solid pink; */
+  width: 100%;
+  height: 230px;
+}
+
+.display-box{
+  /* border: 2px solid yellow; */
+  width: 25%;
+  height: 230px;
+  float: left;
+  text-align: center;
+  color: #82B784;
+}
+
+.display-box h3{
+  font-family: 'Berkshire Swash', cursive;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.display-box ul li{
+  text-decoration: none;
+  list-style: none;
+  line-height: 30px;
+  font-family: 'Edu TAS Beginner', cursive;
+}
+
+.display-box ul li a{
+  text-decoration: none;
+  color:#82B784;
+}
+
+.display-box ul li a:hover{
+  text-decoration: none;
+  color:#415C42;
+}
+
+.footer hr{
+  width: 90%;
+  margin: 0 auto;
+  border-top: 3px solid #82B784;
+  border-radius: 20%;
+  color: #82B784;
+}
+
+.contact-display{
+  /* border: 2px solid red; */
+  width:40%;
+  height: 150px;
+  position: absolute;
+  right: 0;
+  margin-top: 40px;
+}
+
+.connect{
+  /* border: 2px solid orange; */
+  width: 100%;
+  height: 50px;
+  font-family: 'Berkshire Swash', cursive;
+  color: #82B784;
+}
+
+.contact-logo{
+  /* border: 1px solid lightblue; */
+  width: 20%;
+  height: 96px;
+  float: left;
+  padding: 5px;
+}
+
+.contact-logo img{
+  width: 40px;
+  height: 40px;
+}
+
+.copyright-display{
+  /* border:2px solid red; */
+
+  margin-top: 235px;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.copyright-display p{
+  color: #82B784;
+  font-family: 'Edu TAS Beginner', cursive;
+  font-size: 120%;
 }
