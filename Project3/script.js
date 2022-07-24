@@ -76,6 +76,7 @@ reset.addEventListener('click', function(){
     let guessList = document.getElementById("guess_list");
     guessList.innerHTML = '';
     target = Math.floor(Math.random() * 100 + 1);
+    guess_text.textContent = "Guess a number";
 });
 
 try_again_btn_win.addEventListener('click', function(){
@@ -86,6 +87,7 @@ try_again_btn_win.addEventListener('click', function(){
     score_box.classList.remove('hide');
     reset.classList.remove('hide');
     target = Math.floor(Math.random() * 100 + 1);
+    guess_text.textContent = "Guess a number";
 });
 
 try_again_btn_lose.addEventListener('click', function(){
@@ -96,6 +98,7 @@ try_again_btn_lose.addEventListener('click', function(){
     score_box.classList.remove('hide');
     reset.classList.remove('hide');
     target = Math.floor(Math.random() * 100 + 1);
+    guess_text.textContent = "Guess a number";
 });
 
 
