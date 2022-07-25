@@ -42,6 +42,8 @@ const celsius = prompt("Write a temperature in Celsius");
 
 console.log(celToFar(celsius));
 
+
+
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
@@ -63,3 +65,50 @@ btn3.addEventListener('click', function () {
 close.addEventListener('click', function() {
     modal_container.classList.remove('show');
 });
+
+// let id = null;
+// function myMove(){
+//     let bird_box = document.getElementById('bird_box');
+//     let pos = 50;
+//     clearInterval(id);
+//     id = setInterval(frame, 10);
+//     function frame(){
+//         if (pos == 500){
+//             // clearInterval(id);
+//             pos--;
+//             bird_box.style.left = pos + 'px';
+//         }
+//         else{
+//             pos++;
+//             bird_box.style.left= pos + 'px';
+//         }
+//     }
+// }
+
+// window.onload = myMove;
+
+const refreshRate = 1000 / 60;
+const maxXposition = 2000;
+let bird_box = document.getElementById('bird_box');
+bird_box.classList.add('transform');
+let speedX = 5;
+let positionX = 200;
+let transform = 1;
+
+
+window.setInterval(()=> {
+    positionX = positionX + speedX;
+    if(positionX > maxXposition || positionX < 50){
+        // If odd
+        if(transform%2 != 0){
+            bird_box.classList.remove('transform');
+        }
+        else{
+            bird_box.classList.add('transform');
+        }
+        speedX = speedX * (-1);
+        transform++;
+        console.log('transform: ', transform);
+    }
+    bird_box.style.left = positionX + 'px';
+}, refreshRate);
