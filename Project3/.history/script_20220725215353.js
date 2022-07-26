@@ -43,13 +43,12 @@ check_btn.addEventListener("click", function () {
     let node = document.createElement("li");
     node.appendChild(document.createTextNode(guess));
     document.querySelector("ul").appendChild(node);
-    node.className = "border-b";
   } else if (guess > target) {
     score.textContent = score.textContent - 1;
     guess_text.textContent = "Your number is too high";
     let node = document.createElement("li");
 
-    node.className = "border-b";
+    node.className = "border";
     node.appendChild(document.createTextNode(guess));
     document.querySelector("ul").appendChild(node);
   } else {

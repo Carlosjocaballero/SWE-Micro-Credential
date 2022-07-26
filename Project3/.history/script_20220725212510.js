@@ -27,7 +27,7 @@ check_btn.addEventListener("click", function () {
     console.log("you're out of tries!");
     score.textContent = 0;
     secret_num_lose.textContent = target;
-    document.getElementById("btn-gameLost").click();
+    document.getElementById("myCheck").click();
     modal_lose.classList.add("show");
     score_box.classList.add("hide");
     reset.classList.add("hide");
@@ -43,13 +43,10 @@ check_btn.addEventListener("click", function () {
     let node = document.createElement("li");
     node.appendChild(document.createTextNode(guess));
     document.querySelector("ul").appendChild(node);
-    node.className = "border-b";
   } else if (guess > target) {
     score.textContent = score.textContent - 1;
     guess_text.textContent = "Your number is too high";
     let node = document.createElement("li");
-
-    node.className = "border-b";
     node.appendChild(document.createTextNode(guess));
     document.querySelector("ul").appendChild(node);
   } else {
@@ -60,7 +57,6 @@ check_btn.addEventListener("click", function () {
     }
     your_score.textContent = score.textContent;
     your_high_score.textContent = high_score.textContent;
-    document.getElementById("btn-gameWin").click();
     modal_win.classList.add("show");
     score_box.classList.add("hide");
     reset.classList.add("hide");
