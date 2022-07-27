@@ -1,0 +1,62 @@
+CREATE TABLE ownerinfo(
+    id serial PRIMARY KEY, -- serial is a data type
+    first_name VARCHAR(255),
+    last_name VARCHAR(255) NOT NULL
+    -- to give two primary keys
+--     primary key (colm1, col2)
+)
+
+CREATE TABLE petsinfo(
+    id serial PRIMARY KEY, -- serial is a data type
+    name varchar(255),
+    age int,
+    ownder_id int references ownerinfo (id) -- This references the child table to the parent table
+)
+
+
+
+-- It has auto commit so this command is not needed
+commit;
+
+ALTER TABLE ownerinfo
+ADD COLUMN email varchar(255)
+
+ALTER TABLE petsinfo
+ADD CONSTRAINT fk_pets_own FOREIGN KEY (owner_id) references ownerinfo (id)
+
+ALTER TABLE petsinfo
+ADD COLUMN owner_id int
+
+ALTER TABLE petsinfo
+RENAME COLUMN ownder_id TO owner_id
+
+ALTER TABLE ownerinfo
+ADD CONSTRAINT uqic_email unique (email) 
+
+ALTER TABLE petsinfo
+RENAME name to pets_name
+
+-- Inserting into table
+
+INSERT INTO ownerinfo(
+    first_name,
+    last_name
+)
+
+values(
+    'Peter',
+    'Smith'
+)
+
+update ownerinfo
+set email = 'peter@gmail.com'
+
+WHERE ID = 1
+
+INSERT INTO ownerinfo(
+    email
+)
+
+value(
+    'peter@gmai.com'
+)
