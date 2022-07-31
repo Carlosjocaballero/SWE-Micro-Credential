@@ -1,0 +1,113 @@
+SELECT first_name, age_certificate
+FROM directors
+LEFT JOIN movies
+USING (director_id)
+WHERE nationality = 'German'
+
+SELECT d.director_id, count(m.director_id) as num
+FROM directors d
+JOIN movies m
+USING (director_id)
+WHERE m.movie_lang in ('English')
+GROUP BY d.director_id
+HAVING count(m.director_id) > 1
+ORDER BY num DESC
+limit 3
+
+-- number of columns should be the same; data type is similar
+
+SELECT COUNT(*)from movies
+UNION
+SELECT COUNT(*) from movie_revenues
+
+SELECT COUNT(*)from directors --41
+UNION ALL
+SELECT COUNT(*) from actors -- 148
+
+SELECT first_name, last_name from directors 
+UNION ALL                                   -- There is a person(s) who is both an actor and a director
+select first_name, last_name FROM actors 
+
+-- Find the person(s) who are both directors and actors
+SELECT a.first_name as actor_firstName, a.last_name as actor_lastName, d.first_name as director_firstName, d.last_name as director_lastName FROM actors a
+JOIN movie_actors ma
+using (actor_id)
+JOIN movies m
+USING (movie_id)
+JOIN directors d
+USING (director_id)
+WHERE d.first_name = a.first_name AND d.last_name = a.last_name
+
+-- Different way
+
+SELECT d.first_name, d.last_name FROM directors d
+JOIN actors a
+using (first_name, last_name)
+
+-- Internsect --
+
+SELECT first_name, last_name, date_of_birth, nati-onality FROM directors
+WHERE first_name like 'T%'
+intersect
+select first_name, last_name, date_of_birth, gender FROM actors
+ORDER BY last_name
+
+-- except --
+
+SELECT first_name, last_name FROM directors
+EXCEPT
+SELECT first_name, last_name FROM actors
+ORDER BY first_name
+
+-- uncorrelated 
+
+--practice: return all the movies (movie_name) that has above aversger domestic recrord
+SELECt movie_name FROM movies
+WHERE movie_id in 
+(
+    SELECT movie_id FROM movie_revenues
+    WHERE domestic_takings > (SELECT AVG(domestic_takings) from movie_revenues)
+)
+
+-- Select directors who are the oldest director per nationality
+-- select nationality, min(date_of_birth) from directors
+-- group by nationality
+SELECT d1.first_name, d1.last_name, d1.date_of_birth, d1.nationality
+FROM directors d1
+WHERE d1.date_of_birth = 
+( 
+    SELECT min(date_of_birth) from directors d2 WHERE d1.nationality = d2.nationality
+)
+ORDER BY nationality
+
+-- How to write a function
+CREATE OR REPLACE FUNCTION your_function_name(param_list)
+    return return_type
+    language plpgsql
+    as
+   $$
+   declare
+   
+   begin
+    logic
+   end;
+   $$
+  
+CREATE OR REPLACE FUNCTION your_function_name2()
+    return trigger
+    language plpgsql
+    as
+   $$
+   
+   begin
+    -- <> is not equal    
+    if NEW.lasty_name<>OLD.last_name THEN
+        insert into director(first_name, last_name)
+        VALUES (NEW.first_name, NEW.last_name)
+     END IF;
+     return new
+   end;
+   $$
+   
+-- For triggers you follow a certain format
+

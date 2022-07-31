@@ -1,0 +1,91 @@
+-- aggregate function: count, sum, min, max, avg
+SELECT COUNT(*) FROM movie_revenues; -- 53 rows
+
+SELECT COUNT(domestic_takings) FROM movie_revenues; -- 48 rows
+
+SELECT domestic_takings from movie_revenues 
+WHERE domestic_takings IS null; -- 5 rows
+
+SELECT sum(domestic_takings) FROM movie_revenues
+WHERE movie_id < 10;
+
+SELECT SUM(movie_length) FROM movies
+WHERE movie_lang = 'English'
+
+SELECT AVG(movie_length) FROM movies
+WHERE movie_lang = 'English'
+
+SELECT movie_lang as language, AVG(movie_length) as average FROM movies
+-- WHERE movie_lang in ('English','Spanish')
+GROUP BY movie_lang
+HAVING AVG(movie_length) between 100 and 130
+ORDER BY average
+
+SELECT * FROM movies
+WHERE movie_lang in ('English') and movie_length > 126.94
+order by movie_length
+
+SELECT movie_name FROM movies
+WHERE movie_id in (SELECT movie_id from movie_revenues
+                   WHERE domestic_takings+international_takings > 400)
+
+SELECT movie_id, domestic_takings, international_takings from movie_revenues
+WHERE domestic_takings+international_takings > 400
+
+SELECT * from movies m
+JOIN movie_revenues mr
+on m.movie_id= mr.movie_id
+WHERE mr.domestic_takings + mr.international_takings > 400
+
+database relationship
+1) one to one: one parent to one child
+2) one to many: one parent to many children (do a join)
+3) many to many: many parents to many children
+
+SELECT director_id, COUNT(director_id) from movies
+GROUP BY director_id
+
+SELECT * from directors
+WHERE director_id in (3,17,13)
+
+SELECT * from movies
+WHERE director_id in (3,17,13)
+ORDER BY director_id
+
+SELECT * from movies m
+LEFT JOIN movie_revenues mr
+on m.movie_id= mr.movie_id
+
+SELECT d.director_id, d.first_name, d.last_name, m.movie_name, m.movie_lang
+FROM directors d
+INNER JOIN movies m
+ON d.director_id = m.director_id
+ORDER BY d.director_id
+
+SELECT d.director_id, d.first_name, d.last_name, m.movie_name, m.movie_lang, mr.domestic_takings, mr.international_takings
+FROM directors d
+INNER JOIN movies m
+ON d.director_id = m.director_id
+JOIN movie_revenues mr
+on m.movie_id = mr.movie_id
+ORDER BY first_name, mr.domestic_takings
+
+show director name, movie name, domestic_takings, actor_name
+
+SELECT m.movie_name, d.first_name as director_first_Name, d.last_name as director_last_Name, a.first_name as actor_first_Name, a.last_name as actor_last_Name, mr.domestic_takings
+FROM directors d
+JOIN movies m
+ON d.director_id = m.director_id
+JOIN movie_revenues mr
+ON m.movie_id = mr.movie_id
+JOIN movie_actors ma
+ON m.movie_id = ma.movie_id
+JOIN actors a
+ON ma.actor_id = a.actor_id
+
+
+SELECT * FROM actors
+SELECT * FROM directors
+SELECT * FROM movies
+SELECT * FROM movie_actors
+

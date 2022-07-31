@@ -1,0 +1,32 @@
+SELECT * FROM movie_revenues
+WHERE domestic_takings IS NOT NULL
+ORDER BY domestic_takings DESC
+LIMIT 3 OFFSET 2; -- Offset is to skip those number of rows
+
+SELECT * FROM movie_revenues
+WHERE domestic_takings > 0
+ORDER BY domestic_takings DESC
+OFFSET 2 ROWS
+FETCH FIRST 10 ROWS ONLY
+
+SELECT DISTINCT nationality FROM directors;
+
+SELECT director_id, nationality from directors;
+
+SELECT domestic_takings + international_takings as total_sales FROM movie_revenues
+where domestic_takings + international_takings IS NOT null;
+
+SELECT * FROM movie_revenues
+WHERE domestic_takings is NULL or international_takings is null
+
+CREATE VIEW movie_r AS
+SELECT movie_id, domestic_takings + international_takings AS total_sales FROM movie_revenues
+WHERE domestic_takings + international_takings is not null
+
+SELECT * from movie_r
+
+-- || is to join them together
+SELECT first_name || ' ' || last_name AS full_name from directors;
+
+SELECT CONCAT_WS(', ',first_name, last_name, date_of_birth, nationality) 
+AS full_name FROM directors;
